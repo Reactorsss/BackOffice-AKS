@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   CssBaseline,
+  Grid,
   IconButton,
   InputAdornment,
   Paper,
@@ -14,7 +15,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import LoginLogo from "./assets/images/loginLogo.png";
+import LoginLogo from "./assets/images/bgLOgin.png";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
@@ -194,84 +195,108 @@ export default function Home() {
           elevation={5}
           sx={{
             height: "70%",
-            width: "40%",
+            width: "50%",
             background: "rgba(236, 244, 251, 0.6)",
             backdropFilter: "blur(20px)",
             borderRadius: "64px",
             boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
           }}
         >
-          <Box sx={{ height: "30%" }}>
-            <Image width={600} height={150} src={LoginLogo} alt="logo" />
-          </Box>
-          <Box sx={{ height: "70%" }}>
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "'Sour Gummy', sans-serif",
-                letterSpacing: 20,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontWeight: "bolder",
-                pb: "2.5rem",
-              }}
-            >
-              ADMIN LOGIN
-            </Typography>
-            <Stack
-              spacing={2}
+          <Grid sx={{ height: "100%" }} container>
+            <Grid
               sx={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              item
+              xs={6}
             >
-              <TextField
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                id="Username"
-                label="Username"
-                variant="filled"
+              <Image src={LoginLogo} alt="logo" width={330} />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sx={{
+                background: "white",
+                height: "100%",
+                width: "100%",
+                borderTopRightRadius: "64px",
+                borderBottomRightRadius: "64px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Stack
+                spacing={2}
                 sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                   width: "80%",
                 }}
-              />
-              <TextField
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                id="password"
-                label="Password"
-                variant="filled"
-                type={showPassword ? "text" : "password"}
-                sx={{ width: "80%" }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleTogglePasswordVisibility}
-                        edge="end"
-                        aria-label={
-                          showPassword ? "Hide password" : "Show password"
-                        }
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <Button
-                disabled={openBackDrop === true}
-                onClick={loginUser}
-                variant="contained"
-                color="info"
-                sx={{ width: "80%" }}
               >
-                {openBackDrop === true ? "Validating..." : "PROCEED"}
-              </Button>
-            </Stack>
-          </Box>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: "bolder", pb: "2rem", letterSpacing: 4 }}
+                >
+                  ADMIN PANEL
+                </Typography>
+                <TextField
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  id="Username"
+                  label="Username"
+                  variant="outlined"
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "20px",
+                    },
+                  }}
+                />
+                <TextField
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="password"
+                  label="Password"
+                  variant="outlined"
+                  type={showPassword ? "text" : "password"}
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "20px",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleTogglePasswordVisibility}
+                          edge="end"
+                          aria-label={
+                            showPassword ? "Hide password" : "Show password"
+                          }
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <Button
+                  disabled={openBackDrop === true}
+                  onClick={loginUser}
+                  variant="contained"
+                  color="info"
+                  sx={{ width: "100%", borderRadius: "20px" }}
+                >
+                  {openBackDrop === true ? "Validating..." : "PROCEED"}
+                </Button>
+              </Stack>
+            </Grid>
+          </Grid>
         </Paper>
       </Box>
 
