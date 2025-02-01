@@ -34,10 +34,10 @@ body {
 }
 
 .small-text .MuiTableCell-root {
-  font-size: 12px !important;
-  padding: 4px 8px !important;
-  line-height: 1.2 !important;
-  height: 25px !important;
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+  line-height: 1 !important;
+  height: 23px !important;
   
 
   white-space: nowrap;

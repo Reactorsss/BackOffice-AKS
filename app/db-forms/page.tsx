@@ -356,7 +356,7 @@ export default function DatabaseForms() {
                   }}
                 >
                   <Grid container>
-                    <Grid item xs={6}>
+                    <Grid item xs={10}>
                       <Stack
                         direction="row"
                         spacing={2}
@@ -404,7 +404,7 @@ export default function DatabaseForms() {
                     </Grid>
                     <Grid
                       item
-                      xs={6}
+                      xs={2}
                       sx={{
                         display: "flex",
                         justifyContent: "flex-end",
@@ -414,7 +414,7 @@ export default function DatabaseForms() {
                       <TextField
                         variant="outlined"
                         sx={{
-                          width: "80%",
+                          width: "100%",
                           borderRadius: "50px",
                           backgroundColor: "white",
                         }}
@@ -457,7 +457,7 @@ export default function DatabaseForms() {
                     minHeight: "530px",
                     display: "flex",
                     flexDirection: "column",
-                    p: 2,
+                    px: 2,
                   }}
                 >
                   <TableContainer className="custom-scrollbar small-text">
